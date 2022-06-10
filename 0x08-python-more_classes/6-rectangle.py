@@ -9,10 +9,9 @@ class Rectangle:
     This class has two private instance attributes.
     width must be an integer, equal or greater than 0.
     Height must be an integer, equal or greater than 0.
-    This class has a public instance attribute.
+    This class has a Public class attribute.
     number_of_instances, that stores the number of instances done.
     """
-    
     number_of_instances = 0
 
     def __init__(self, width=0, height=0):
