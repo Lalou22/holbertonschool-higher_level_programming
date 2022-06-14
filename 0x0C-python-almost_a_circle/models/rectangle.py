@@ -118,10 +118,11 @@ class Rectangle(Base):
                 format(self.id, self.__x, self.__y, self.__width,
                        self.__height))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
-        Update the class Rectangle by adding the public method update
+        Update 2 the class Rectangle by adding the public method update
         that assigns an argument to each attribute.
+        Using *args or **kwargs.
         """
         if len(args):
             for i, _arg in enumerate(args):
@@ -135,3 +136,14 @@ class Rectangle(Base):
                     self.x = _arg
                 elif i == 4:
                     self.y = _arg
+        else:
+            if "id" in kwargs:
+                self.id = kwargs["id"]
+            if "width" in kwargs:
+                self.width = kwargs["width"]
+            if "height" in kwargs:
+                self.height = kwargs["height"]
+            if "x" in kwargs:
+                self.x = kwargs["x"]
+            if "y" in kwargs:
+                self.y = kwargs["y"]
