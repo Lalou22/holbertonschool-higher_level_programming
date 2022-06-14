@@ -106,3 +106,12 @@ class Rectangle(Base):
         the character # - you don’t need to handle x and y here.
         """
         print("\n".join(("#" * self.__width) for a in range(self.__height)))
+
+    def __str__(self):
+        """
+        This function overrides the __str__ method so that it returns
+        [Rectangle] (<id>) <x>/<y> - <width>/<height>
+        """
+        return ("[Rectangle] ({}) {:d}/{:d} - {:d}/{:d}".
+                format(self.id, self.__x, self.__y, self.__width,
+                       self.__height))
