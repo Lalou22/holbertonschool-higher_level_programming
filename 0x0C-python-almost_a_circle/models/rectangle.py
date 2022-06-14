@@ -105,7 +105,7 @@ class Rectangle(Base):
         Public method that prints in stdout the Rectangle instance with
         the character #.
         """
-        print(("\n" * self.__y) +"\n".join(((" " * self.__x) +
+        print(("\n" * self.__y) +"\n".join(((" " * self.__x) + 
                                             ("#" * self.__width))
                                            for i in range(self.__height)))
 
