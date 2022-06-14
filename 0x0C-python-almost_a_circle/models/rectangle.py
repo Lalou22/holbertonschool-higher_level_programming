@@ -8,7 +8,7 @@ from models.base import Base
 class Rectangle(Base):
     """
     This is the class Rectangle containing Private instance attributes,
-    each with its own public getter and setter: 
+    each with its own public getter and setter:
     Attributes __width,  __height, __x and __y and a class constructor.
     """
     def __init__(self, width, height, x=0, y=0, id=None):
