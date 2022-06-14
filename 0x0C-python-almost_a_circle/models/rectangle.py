@@ -103,11 +103,11 @@ class Rectangle(Base):
     def display(self):
         """
         Public method that prints in stdout the Rectangle instance with
-        the character # - you don’t need to handle x and y here.
+        the character #.
         """
-        print(("\n" * self.__y) +"\n".join(
-            ((" " * self.__x) + ("#" * self.__width))
-            for i in range(self.__height)))
+        print(("\n" * self.__y) +"\n".join(((" " * self.__x) +
+                                            ("#" * self.__width))
+                                           for i in range(self.__height)))
 
     def __str__(self):
         """
