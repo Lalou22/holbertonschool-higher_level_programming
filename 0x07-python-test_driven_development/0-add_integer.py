@@ -21,8 +21,8 @@ def add_integer(a, b=98):
         The sum of a and b.
     """
 
-    if type(a) not in (float, int):
+    if isinstance(a, (float, int)) is False:
         raise TypeError('a must be an integer')
-    if type(b) not in (float, int):
+    elif isinstance(b, (float, int)) is False:
         raise TypeError('b must be an integer')
     return int(a) + int(b)
