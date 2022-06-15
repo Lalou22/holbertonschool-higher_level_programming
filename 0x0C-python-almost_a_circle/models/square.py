@@ -24,3 +24,20 @@ class Square(Rectangle):
         """
         return ("[Square] ({}) {:d}/{:d} - {:d}".format
                 (self.id, self.x, self.y, self.width))
+
+    @property
+    def size(self):
+        """
+        This function returns the size (Getter).
+        You can return either width or height since they are the same.
+        """
+        return (self.width)
+
+    @size.setter
+    def size(self, value):
+        """
+        The setter should assign (in this order) the width and the
+        height - with the same value.
+        """
+        self.width = value
+        self.height = value
