@@ -80,7 +80,7 @@ class Base:
     def load_from_file(cls):
         """
         Class method that returns a list of instances. The filename must
-        be: <Class name>.json - If the file doesn’t exist, return an empty 
+        be: <Class name>.json - If the file doesn’t exist, return an empty
         list. Otherwise, return a list of instances.
         """
         fn = cls.__name__ + ".json"
@@ -90,6 +90,6 @@ class Base:
                 lst = cls.from_json_string(myFile.read())
             for i, j in enumerate(lst):
                 lst[i] = cls.create(**lst[i])
-        except:
+        except EnvironmentError:
             pass
         return (lst)
