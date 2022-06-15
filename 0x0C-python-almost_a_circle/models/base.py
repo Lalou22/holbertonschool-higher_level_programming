@@ -5,6 +5,7 @@ with all its methods and attributes
 definition
 """
 import json
+import csv
 
 
 class Base:
@@ -90,6 +91,44 @@ class Base:
                 lst = cls.from_json_string(myFile.read())
             for i, j in enumerate(lst):
                 lst[i] = cls.create(**lst[i])
-        except EnvironmentError:
+        except FileNotFoundError:
             pass
         return (lst)
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Class method that serializes in CSV.
+        """
+        fn = cls.__name__ + ".csv"
+        if fn == "Rectangle.csv":
+            fields = ["id", "width", "height", "x", "y"]
+        else:
+            fields = ["id", "size", "x", "y"]
+        with open(fn, mode="w", newline="") as myFile:
+            if list_objs is None:
+                writer = csv.writer(myFile)
+                writer.writerow([[]])
+            else:
+                writer = csv.DictWriter(myFile, fieldnames=fields)
+                writer.writeheader()
+                for x in list_objs:
+                    writer.writerow(x.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Class method that deserializes in CSV.
+        """
+        try:
+            fn = cls.__name__ + ".csv"
+            with open(fn, newline="") as myFile:
+                reader = csv.DictReader(myFile)
+                lst = []
+                for x in reader:
+                    for i, n in x.items():
+                        x[i] = int(n)
+                    lst.append(x)
+                return ([cls.create(**objt) for objt in lst])
+        except FileNotFoundError:
+            return ([])
