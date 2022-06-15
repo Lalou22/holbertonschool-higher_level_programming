@@ -87,8 +87,14 @@ Checking one arg:
          ...
 	 TypeError: a must be an integer
 
-Checking a is not None:
-	 >>> add_integer(None, 5)
+Checking for none a:
+	 >>> add_integer(None, 50)
 	 Traceback (most recent call last):
 	 ...
 	 TypeError: a must be an integer
+
+Checking for none b:
+	 >>> add_integer(2, None)
+	 Traceback (most recent call last):
+	 ...
+	 TypeError: b must be an integer
